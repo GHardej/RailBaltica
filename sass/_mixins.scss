@@ -1,0 +1,5 @@
+@mixin heroImg($bgImg) {
+    background-image: $bg-shadow-linear-gradient, url($bgImg);
+    background-position: center;
+    background-size: cover;
+}

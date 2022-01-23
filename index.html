@@ -16,13 +16,13 @@
 
 <body>
     <nav>
-        <div class="nav-btn__box">
-            <div class="nav-btn__circle nav-btn__circle--small">
+        <button class="nav-btn">
+            <div class="nav-btn__circle nav-btn__circle--large">
                 <div class="nav-btn__circle nav-btn__circle--medium">
-                    <div class="nav-btn__circle nav-btn__circle--large"></div>
+                    <div class="nav-btn__circle nav-btn__circle--small"></div>
                 </div>
             </div>
-        </div>
+        </button>
 
         <div class="nav">
             <div class="nav__items">
@@ -32,8 +32,8 @@
                     </div>
                     <div class="nav__item-box-links">
                         <ul>
-                            <li class="nav__item-box-link"><a href="#client"></a></li>
-                            <li class="nav__item-box-link"><a href="#contractor"></a></li>
+                            <li class="nav__item-box-link"><a href="#client">Zamawiający</a></li>
+                            <li class="nav__item-box-link"><a href="#contractor">Generalny Wykonawca</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,8 +43,9 @@
                     </div>
                     <div class="nav__item-box-links">
                         <ul>
-                            <li class="nav__item-box-link"><a href="#scope"></a></li>
-                            <li class="nav__item-box-link"><a href="#planning"></a></li>
+                            <li class="nav__item-box-link"><a href="#scope">Ogólne informacje</a></li>
+                            <li class="nav__item-box-link"><a href="#planning">Planowane etapy</a></li>
+                            <li class="nav__item-box-link"><a href="#planning">Fazowanie robót</a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,8 +55,9 @@
                     </div>
                     <div class="nav__item-box-links">
                         <ul>
-                            <li class="nav__item-box-link"><a href="#general_progress"></a></li>
-                            <li class="nav__item-box-link"><a href="#section_A"></a></li>
+                            <li class="nav__item-box-link"><a href="#general_progress">Postęp na budowie</a></li>
+                            <li class="nav__item-box-link"><a href="#section_A">Odcinek A</a></li>
+                            <li class="nav__item-box-link"><a href="#section_A">Odcinek A</a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,14 +67,32 @@
                     </div>
                     <div class="nav__item-box-links">
                         <ul>
-                            <li class="nav__item-box-link"><a href="#"></a></li>
-                            <li class="nav__item-box-link"><a href="#"></a></li>
+                            <li class="nav__item-box-link"><a href="#">Biuro budowy</a></li>
+                            <li class="nav__item-box-link"><a href="#">Konsorcjum</a></li>
+                            <li class="nav__item-box-link"><a href="#">Zamawiający</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+
+    <header class="header">
+        <div class="header__heading">
+            <div class="header__heading-box header__heading-box--left">
+                <div class="header__heading-block header__heading-block--left"></div>
+                <h1 class="header__heading-text">Rail</h1>
+            </div>
+
+            <div class="header__heading-box header__heading-box--right">
+                <div class="header__heading-block header__heading-block--right"></div>
+                <h1 class="header__heading-text header__heading-text-right">Baltica</h1>
+            </div>
+        </div>
+
+        <p class="header__text">E75, Czyżew - Białystok</p>
+        <a href="#scope" class="header__btn btn-special-animation">Poznaj projekt</a>
+    </header>
 
     <script src="./js/main.js"></script>
 </body>
