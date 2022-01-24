@@ -21,7 +21,7 @@ body {
 }
 
 // NAVIGATION
-.nav-btn {
+.btn {
 	position: fixed;
 	top: 20px;
 	left: 20px;
@@ -61,7 +61,7 @@ body {
 	}
 
 	&:hover {
-		.nav-btn__circle--small {
+		.btn__circle--small {
 			transform: scale(2) translate(-25%, -25%);
 		}
 	}
@@ -70,51 +70,58 @@ body {
 .nav {
 	position: fixed;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	// display: none;
 	height: 100vh;
-	width: 45vw;
+	width: 100%;
 	z-index: 10;
 
 	&__items {
-		height: 75%;
+		height: 80%;
 		width: 100%;
 	}
-    
-	&__item-box {
-        display: flex;
-		flex-direction: column;
-		height: 25%;
-        background-color: $main-color;
-        border-top: 1px solid $secondary-color;
-        padding: 0.5em 0 0 1em;
-        transform: translateX(-100%);
-        
-        &--active {
-            transform: translateX(0);
-        }
 
-        &:first-child {
-            border-top: none;
-        }
+	&__item {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		height: 25%;
+		background-color: $main-color;
+		border-top: 1px solid $secondary-color;
+		// transform: translateX(-100%);
+
+		&--active {
+			transform: translateX(0);
+		}
+
+		&:first-child {
+			border-top: none;
+		}
 
 		&-title {
-			order: 0;
-			font-size: 2.2rem;
-			text-align: left;
-            color: $pure-white;
+			position: absolute;
+			right: 0;
+			height: 100%;
+			padding: 0 1em;
+			text-align: center;
+			writing-mode: vertical-rl;
+			font-size: 2.4rem;
+			background-color: $heading-color;
+			color: $pure-white;
+		}
+
+		&-menu {
+			align-self: center;
 		}
 
 		&-link {
-			list-style: none;
+			display: block;
 			margin: 0.5em 0;
-            font-size: 1.6rem;
-            cursor: pointer;
-
-			a {
-				text-decoration: none;
-				color: $menu-item;
-			}
+			padding: 0.3em 0;
+			font-size: 1.6rem;
+			text-decoration: none;
+			color: $menu-item;
+			cursor: pointer;
 
 			&--desktop {
 				display: none;
@@ -125,22 +132,15 @@ body {
 
 // HEADER
 .header {
-	display: flex;
-	// display: none;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	height: 100vh;
-	padding: 1.5em;
-	color: $light-white;
 	@include heroImg('../img/header_640.jpg');
 	overflow: hidden;
 
 	&__heading {
 		display: grid;
-		height: 75%;
+		height: 100%;
 		width: 100%;
-		grid-template: repeat(5, 1fr) / 1fr 1fr;
+		grid-template: 2fr repeat(4, 1fr) 2fr / 1fr 1fr;
 	}
 
 	&__heading-box {
@@ -153,25 +153,26 @@ body {
 
 		&-left {
 			grid-column: 1 / 2;
-			grid-row: 1 / 2;
+			grid-row: 2 / 3;
 		}
 
 		&-center {
 			grid-column: 1 / span 2;
-			grid-row: 2 / 3;
+			grid-row: 3 / 4;
 		}
 
 		&-right {
 			grid-column: 2 / 3;
-			grid-row: 3 / 4;
+			grid-row: 4 / 5;
 		}
 
 		&-bottom {
 			grid-column: 1 / span 2;
-			grid-row: 5 / 6;
+			grid-row: 6 / 7;
 			align-items: start;
 		}
 	}
+
 	&__heading-block {
 		position: absolute;
 		top: 0;
@@ -228,11 +229,8 @@ body {
 
 @media (max-width: 374px) {
 	.header {
-		&__heading-box {
-			&-right {
-				justify-content: flex-end;
-			}
-		}
+		min-width: 320px;
+
 		&__heading-block {
 			&--right {
 				left: -10px;
@@ -252,10 +250,25 @@ body {
 			font-size: 1.7rem;
 		}
 	}
+
+	.nav {
+		&__item {
+			&-title {
+				padding: 0 0.5em;
+				font-size: 2.2rem;
+			}
+
+			&-link {
+				margin: 0.3em 0;
+				padding: 0.3em 0;
+				font-size: 1.4rem;
+			}
+		}
+	}
 }
 
 @media (min-width: 576px) {
-	.nav-btn {
+	.btn {
 		top: 30px;
 		left: 30px;
 		width: 60px;
