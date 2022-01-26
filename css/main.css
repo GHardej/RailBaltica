@@ -39,6 +39,39 @@
           transform: scaleX(1);
 }
 
+.nav__item-link {
+  position: relative;
+}
+
+.nav__item-link::before, .nav__item-link::after {
+  position: absolute;
+  content: '';
+  width: 0em;
+  height: 0em;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.nav__item-link::before {
+  top: -0.1em;
+  left: -0.5em;
+  border-top: 0 solid #2e4c6d;
+  border-left: 0 solid #2e4c6d;
+}
+
+.nav__item-link::after {
+  bottom: -0.1em;
+  right: -0.5em;
+  border-bottom: 0 solid #2e4c6d;
+  border-right: 0 solid #2e4c6d;
+}
+
+.nav__item-link:hover::before, .nav__item-link:hover::after {
+  width: 1em;
+  height: 1em;
+  border-width: 3px;
+}
+
 *,
 *::before,
 *::after {
@@ -67,6 +100,8 @@ body {
   border-radius: 11px;
   border: none;
   background-color: #051c2c;
+  -webkit-box-shadow: 1px 1px 2px #396eb0;
+          box-shadow: 1px 1px 2px #396eb0;
   cursor: pointer;
   z-index: 100;
 }
@@ -102,7 +137,7 @@ body {
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
-.btn:hover .btn__circle--small {
+.btn__circle--small:hover {
   -webkit-transform: scale(2) translate(-25%, -25%);
           transform: scale(2) translate(-25%, -25%);
 }
@@ -118,8 +153,6 @@ body {
   height: 100vh;
   width: 100%;
   z-index: 5;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
 }
 
 .nav--active {
@@ -142,7 +175,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 25%;
-  background-color: #396eb0;
+  background-color: #375f8f;
   border-top: 1px solid #2e4c6d;
 }
 
@@ -173,6 +206,9 @@ body {
 
 .nav__item-link {
   display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 0.5em 0;
   padding: 0.3em 0;
   font-size: 1.6rem;
@@ -268,9 +304,9 @@ body {
 }
 
 .header__heading-block--left {
+  right: 0;
   -webkit-box-shadow: 1px 1px 3px #396eb0;
           box-shadow: 1px 1px 3px #396eb0;
-  right: 0;
   -webkit-transform: skew(45deg);
           transform: skew(45deg);
 }
@@ -339,12 +375,6 @@ body {
 }
 
 @media (min-width: 576px) {
-  .btn {
-    top: 30px;
-    left: 30px;
-    width: 60px;
-    height: 60px;
-  }
   .header__heading-block--right {
     left: -30px;
   }

@@ -30,7 +30,8 @@ body {
 	border-radius: 11px;
 	border: none;
 	background-color: $btn-background;
-	cursor: pointer;
+			box-shadow: 1px 1px 2px $secondary-color;
+			cursor: pointer;
 	z-index: 100;
 
 	&__circle {
@@ -57,14 +58,13 @@ body {
 			width: 60%;
 			background-color: $btn-circle-small;
 			transition: transform 0.3s;
+
+			&:hover {
+					transform: scale(2) translate(-25%, -25%);
+			}
 		}
 	}
 
-	&:hover {
-		.btn__circle--small {
-			transform: scale(2) translate(-25%, -25%);
-		}
-	}
 }
 
 .nav {
@@ -75,7 +75,7 @@ body {
 	height: 100vh;
 	width: 100%;
 	z-index: 5;
-	transform: translateX(-100%);
+	// transform: translateX(-100%);
 
 	&--active {
 		transform: translateX(0);
@@ -92,7 +92,7 @@ body {
 		display: flex;
 		justify-content: center;
 		height: 25%;
-		background-color: $secondary-color;
+		background-color: $menu-bg;
 		border-top: 1px solid $main-color;
 
 		&:first-child {
@@ -118,6 +118,7 @@ body {
 
 		&-link {
 			display: block;
+			width: fit-content;
 			margin: 0.5em 0;
 			padding: 0.3em 0;
 			font-size: 1.6rem;
@@ -184,8 +185,9 @@ body {
 		background-color: $d-block-color;
 
 		&--left {
-			box-shadow: 1px 1px 3px $secondary-color;
 			right: 0;
+			// border-top-right-radius: 50px;
+			box-shadow: 1px 1px 3px $secondary-color;
 			transform: skew(45deg);
 		}
 
@@ -270,12 +272,12 @@ body {
 }
 
 @media (min-width: 576px) {
-	.btn {
-		top: 30px;
-		left: 30px;
-		width: 60px;
-		height: 60px;
-	}
+	// .btn {
+	// 	top: 30px;
+	// 	left: 30px;
+	// 	width: 60px;
+	// 	height: 60px;
+	// }
 
 	.header {
 		&__heading-block {
