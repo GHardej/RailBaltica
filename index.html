@@ -17,11 +17,9 @@
 <body>
     <nav>
         <button class="btn" type="button">
-            <div class="btn__circle btn__circle--large">
-                <div class="btn__circle btn__circle--medium">
-                    <div class="btn__circle btn__circle--small"></div>
-                </div>
-            </div>
+            <div class="btn__circle btn__circle--large"></div>
+            <div class="btn__circle btn__circle--medium"></div>
+            <div class="btn__circle btn__circle--small"></div>
         </button>
 
         <div class="nav">
@@ -31,7 +29,7 @@
                         <p>O nas</p>
                     </div>
                     <div class="nav__item-menu">
-                        <a class="nav__item-link" href="#client">Zamawiający</a>
+                        <a class="nav__item-link" href="#client">Inwestor</a>
                         <a class="nav__item-link" href="#contractor">Wykonawca</a>
                     </div>
                 </div>
@@ -75,6 +73,30 @@
 
     <header class="header">
         <div class="header__heading">
+
+            <div class="header__days header__days-elapsed">
+                <p class="header__days-text">
+                    Od startu <span class="days-elapsed"></span><span class="days-elapsed-percentage"></span>
+                </p>
+            </div>
+
+            <div class="header__days header__days-to-finish">
+                <p class="header__days-text">
+                    Do końca <span class="days-to-finish"></span><span class="days-to-finish-percentage"></span>
+                </p>
+            </div>
+
+
+            <div class="header__weather">
+                <div class="header__weather-date"></div>
+                <div class="header__weather-box">
+                    <div class="header__weather-info">
+                        <img src="./img/weather-icons/unknown.png" alt="Obrazek przedstawiający pogodę"
+                            class="header__weather-photo">
+                    </div>
+                    <div class="header__weather-temp"></div>
+                </div>
+            </div>
             <div class="header__heading-box header__heading-box-left">
                 <div class="header__heading-block header__heading-block--left"></div>
                 <h1 class="header__heading-text">Rail</h1>

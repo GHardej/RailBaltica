@@ -1,0 +1,29 @@
+@keyframes rail {
+	from {
+		transform: translateX(-120%);
+	}
+
+	to {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes baltica {
+	from {
+		transform: translateX(130%);
+	}
+
+	to {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes headerText {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
