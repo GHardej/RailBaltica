@@ -7,49 +7,78 @@ const btnIcon = document.querySelector('.btn');
 const weatherDate = document.querySelector('.header__weather-date');
 const temperature = document.querySelector('.header__weather-temp');
 const weatherPhoto = document.querySelector('.header__weather-photo');
-const elapsedDays = document.querySelector('.days-elapsed');
-const elapsedDaysPercentage = document.querySelector(
-	'.days-elapsed-percentage'
-);
-const daysToFinish = document.querySelector('.days-to-finish');
-const daysToFinishPercentage = document.querySelector(
-	'.days-to-finish-percentage'
-);
-
-const actualDate = new Date();
-const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-const startDate = new Date(2020, 05, 27);
-const endDate = new Date(2023, 06, 27);
-const contractDuration = endDate.getTime() - startDate.getTime();
 
 // contract days calculation
-elapsedDays.textContent =
-	(
-		(actualDate.getTime() - startDate.getTime()) /
-		(24 * 60 * 60 * 1000)
-	).toFixed() + ' dni ';
+const actualDate = new Date();
+const startDate = new Date(2020, 05, 27);
+const endDate = new Date(2023, 06, 27);
 
-elapsedDaysPercentage.textContent =
-	'(' +
-	(
-		((actualDate.getTime() - startDate.getTime()) / contractDuration) *
-		100
-	).toFixed() +
-	'%)';
+const barDaysElapsed = document.querySelector('.progress__bar-days-elapsed');
+const daysElapsedPercentageInfo = document.querySelector(
+	'.progress__bar-days-elapsed-percentage'
+);
+const progressInfo = document.querySelector('.progress__info');
+const daysElapsedInfo = document.querySelector('.progress__info-days-elapsed');
+const daysToFinishInfo = document.querySelector(
+	'.progress__info-days-to-finish'
+);
 
-daysToFinish.textContent =
-	(
-		(endDate.getTime() - actualDate.getTime() + 24 * 60 * 60 * 1000) /
-		(24 * 60 * 60 * 1000)
-	).toFixed() + ' dni ';
+const contractDuration = endDate.getTime() - startDate.getTime();
 
-daysToFinishPercentage.textContent =
-	'(' +
-	(
-		((endDate.getTime() - actualDate.getTime()) / contractDuration) *
-		100
-	).toFixed() +
-	'%)';
+const elapsedDays = Math.ceil(
+	(actualDate.getTime() - startDate.getTime()) /
+	(24 * 60 * 60 * 1000)
+);
+
+const daysElapsedPercentage = Math.round(
+	((actualDate.getTime() - startDate.getTime()) / contractDuration) *
+	100
+);
+
+const daysToFinish = Math.ceil(
+	(endDate.getTime() - actualDate.getTime() + 24 * 60 * 60 * 1000) /
+	(24 * 60 * 60 * 1000)
+);
+
+barDaysElapsed.style.width = daysElapsedPercentage + '%';
+progressInfo.style.width = daysElapsedPercentage + '%';
+
+daysElapsedInfo.textContent = elapsedDays;
+daysToFinishInfo.textContent = daysToFinish;
+daysElapsedPercentageInfo.textContent = daysElapsedPercentage + '%';
+
+console.log(elapsedDays);
+console.log(daysElapsedPercentage);
+console.log(daysToFinish);
+
+
+// elapsedDays.textContent =
+// 	(
+// 		(actualDate.getTime() - startDate.getTime()) /
+// 		(24 * 60 * 60 * 1000)
+// 	).toFixed() + ' dni ';
+
+// elapsedDaysPercentage.textContent =
+// 	'(' +
+// 	(
+// 		((actualDate.getTime() - startDate.getTime()) / contractDuration) *
+// 		100
+// 	).toFixed() +
+// 	'%)';
+
+// daysToFinish.textContent =
+// 	(
+// 		(endDate.getTime() - actualDate.getTime() + 24 * 60 * 60 * 1000) /
+// 		(24 * 60 * 60 * 1000)
+// 	).toFixed() + ' dni ';
+
+// daysToFinishPercentage.textContent =
+// 	'(' +
+// 	(
+// 		((endDate.getTime() - actualDate.getTime()) / contractDuration) *
+// 		100
+// 	).toFixed() +
+// 	'%)';
 
 // weather API
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?q=';
@@ -63,6 +92,7 @@ const getWeather = () => {
 	const city = 'Białystok';
 	const URL = API_LINK + city + API_KEY + API_UNITS;
 
+	const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 	weatherDate.textContent = actualDate.toLocaleDateString('pl-PL', dateOptions);
 
 	fetch(URL)

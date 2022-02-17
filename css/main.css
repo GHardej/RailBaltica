@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
@@ -74,8 +75,8 @@
 
 @-webkit-keyframes rail {
   from {
-    -webkit-transform: translateX(-120%);
-            transform: translateX(-120%);
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
   }
   to {
     -webkit-transform: translateX(0%);
@@ -85,8 +86,8 @@
 
 @keyframes rail {
   from {
-    -webkit-transform: translateX(-120%);
-            transform: translateX(-120%);
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
   }
   to {
     -webkit-transform: translateX(0%);
@@ -131,6 +132,106 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+.progress {
+  width: 60%;
+}
+
+.progress__bar {
+  height: 30px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #3ec4f7;
+  overflow: hidden;
+}
+
+.progress__bar-days-elapsed {
+  position: relative;
+  height: 100%;
+  width: 50%;
+  background-color: #396eb0;
+}
+
+.progress__info {
+  position: relative;
+  width: 50%;
+  margin-top: 0.3em;
+}
+
+.progress__bar-days-elapsed-percentage, .progress__info-days-elapsed, .progress__info-days-to-finish {
+  position: absolute;
+  font-size: 1.6rem;
+  cursor: default;
+}
+
+.progress__bar-days-elapsed-percentage {
+  right: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #3ec4f7;
+}
+
+.progress__info-days-elapsed:hover::before, .progress__info-days-to-finish:hover::after {
+  display: none;
+  position: absolute;
+  text-align: center;
+}
+
+.progress__info-days-elapsed {
+  right: 0.4em;
+  font-weight: bold;
+  color: #396eb0;
+}
+
+.progress__info-days-elapsed:hover::before {
+  right: 60px;
+  content: 'dni od daty rozpoczęcia: 27.06.2020 ';
+}
+
+.progress__info-days-to-finish {
+  right: -2em;
+  font-weight: bold;
+  color: #3ec4f7;
+}
+
+.progress__info-days-to-finish:hover::after {
+  left: 60px;
+  content: 'dni do daty zakończenia: 27.07.2023';
+}
+
+@media (max-width: 374px) {
+  .progress {
+    width: 55%;
+  }
+  .progress__bar-days-elapsed-percentage, .progress__info-days-elapsed, .progress__info-days-to-finish {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .progress {
+    width: 65%;
+  }
+  .progress__bar {
+    height: 40px;
+  }
+  .progress__bar-days-elapsed-percentage, .progress__info-days-elapsed, .progress__info-days-to-finish {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .progress__bar-days-elapsed-percentage, .progress__info-days-elapsed, .progress__info-days-to-finish {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .progress__info-days-elapsed:hover::before, .progress__info-days-to-finish:hover::after {
+    display: inline-block;
   }
 }
 
@@ -315,42 +416,20 @@ body {
       grid-template: 2fr repeat(4, 1fr) 2fr/repeat(4, 1fr);
 }
 
-.header__days {
-  margin-top: 1em;
-  padding: 0 0.5em;
-  font-size: 1.6rem;
-}
-
-.header__days span {
-  display: block;
-}
-
-.header__days-elapsed {
+.header__bar {
   -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
-}
-
-.header__days-to-finish {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3/4;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-}
-
-.header__days-text {
-  font-size: inherit;
-  text-align: center;
-  color: #3ec4f7;
-}
-
-.header__days-text .days-elapsed, .header__days-text .days-to-finish {
-  color: #fc997c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1.4em;
 }
 
 .header__weather {
@@ -363,7 +442,7 @@ body {
 }
 
 .header__weather-date {
-  margin-top: 1em;
+  margin-top: 1.4em;
   padding: 0 0.5em;
   font-size: 1.6rem;
   text-align: center;
@@ -421,8 +500,8 @@ body {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2 / 3;
-  -webkit-transform: translateX(-120%);
-          transform: translateX(-120%);
+  -webkit-transform: translateX(-150%);
+          transform: translateX(-150%);
   -webkit-animation: rail 1s ease-out 0.5s forwards;
           animation: rail 1s ease-out 0.5s forwards;
 }
@@ -474,7 +553,7 @@ body {
 .header__heading-block--right {
   -webkit-box-shadow: -1px 1px 3px #396eb0;
           box-shadow: -1px 1px 3px #396eb0;
-  left: -30px;
+  left: -40px;
   -webkit-transform: skew(-45deg);
           transform: skew(-45deg);
 }
@@ -519,10 +598,6 @@ body {
   .header {
     min-width: 320px;
   }
-  .header__days {
-    padding: 0.4em;
-    font-size: 1.4rem;
-  }
   .header__weather-date {
     padding: 0.4em;
     font-size: 1.4rem;
@@ -535,6 +610,9 @@ body {
   }
   .header__heading-block--right {
     left: -10px;
+  }
+  .header__heading-block--left {
+    right: -10px;
   }
   .header__heading-text {
     font-size: 3.6rem;
@@ -563,12 +641,7 @@ body {
     width: 55px;
     height: 55px;
   }
-  .header__days {
-    margin-top: 1.5em;
-    padding: 0;
-    font-size: 1.8rem;
-  }
-  .header__weather-date {
+  .header__weather-date, .header__bar {
     margin-top: 1.5em;
     padding: 0;
     font-size: 1.8rem;

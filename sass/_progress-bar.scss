@@ -1,0 +1,118 @@
+$bar-width: 60%;
+$bar-height: 30px;
+
+.progress {
+	width: $bar-width;
+
+	&__bar {
+		height: $bar-height;
+		width: 100%;
+		border-radius: 8px;
+		background-color: $bar-light;
+		overflow: hidden;
+	}
+
+	&__bar-days-elapsed {
+		position: relative;
+		height: 100%;
+		width: 50%;
+		background-color: $secondary-color;
+	}
+
+	&__info {
+		position: relative;
+		width: 50%;
+		margin-top: 0.3em;
+	}
+
+	&__bar-days-elapsed-percentage,
+	&__info-days-elapsed,
+	&__info-days-to-finish {
+		position: absolute;
+		font-size: 1.6rem;
+		cursor: default;
+	}
+
+	&__bar-days-elapsed-percentage {
+		right: 5px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $bar-light;
+	}
+
+	&__info-days-elapsed:hover::before,
+	&__info-days-to-finish:hover::after {
+		display: none;
+		position: absolute;
+		text-align: center;
+	}
+
+	&__info-days-elapsed {
+		right: 0.4em;
+		font-weight: bold;
+		color: $secondary-color;
+
+		&:hover::before {
+			right: 60px;
+			content: 'dni od daty rozpoczęcia: 27.06.2020 ';
+		}
+	}
+
+	&__info-days-to-finish {
+		right: -2em;
+		font-weight: bold;
+		color: $bar-light;
+
+		&:hover::after {
+			left: 60px;
+			content: 'dni do daty zakończenia: 27.07.2023';
+		}
+	}
+}
+
+@media (max-width: 374px) {
+	.progress {
+		width: $bar-width - 5%;
+
+		&__bar-days-elapsed-percentage,
+		&__info-days-elapsed,
+		&__info-days-to-finish {
+			font-size: 1.4rem;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.progress {
+		width: $bar-width + 5%;
+
+		&__bar {
+			height: $bar-height + 10px;
+		}
+
+		&__bar-days-elapsed-percentage,
+		&__info-days-elapsed,
+		&__info-days-to-finish {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.progress {
+		&__bar-days-elapsed-percentage,
+		&__info-days-elapsed,
+		&__info-days-to-finish {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.progress {
+		&__info-days-elapsed:hover::before,
+		&__info-days-to-finish:hover::after {
+			display: inline-block;
+		}
+	}
+}
