@@ -10,7 +10,7 @@
   overflow: hidden;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
-  z-index: 0;
+  z-index: 1;
 }
 
 .btn-special-animation::before {
@@ -73,6 +73,17 @@
   border-width: 3px;
 }
 
+.bottom-block {
+  position: absolute;
+  height: 100vh;
+  width: 150vw;
+  border-radius: 50%;
+  background-color: #daddfc;
+  bottom: -80%;
+  left: -40%;
+  z-index: 0;
+}
+
 @-webkit-keyframes rail {
   from {
     -webkit-transform: translateX(-150%);
@@ -97,8 +108,8 @@
 
 @-webkit-keyframes baltica {
   from {
-    -webkit-transform: translateX(130%);
-            transform: translateX(130%);
+    -webkit-transform: translateX(150%);
+            transform: translateX(150%);
   }
   to {
     -webkit-transform: translateX(0%);
@@ -108,8 +119,8 @@
 
 @keyframes baltica {
   from {
-    -webkit-transform: translateX(130%);
-            transform: translateX(130%);
+    -webkit-transform: translateX(150%);
+            transform: translateX(150%);
   }
   to {
     -webkit-transform: translateX(0%);
@@ -207,7 +218,7 @@
     width: 55%;
   }
   .progress__bar-days-elapsed-percentage, .progress__info-days-elapsed, .progress__info-days-to-finish {
-    font-size: 1.4rem;
+    font-size: inherit;
   }
 }
 
@@ -219,19 +230,20 @@
     height: 40px;
   }
   .progress__bar-days-elapsed-percentage, .progress__info-days-elapsed, .progress__info-days-to-finish {
-    font-size: 1.8rem;
+    font-size: inherit;
   }
 }
 
 @media (min-width: 768px) {
   .progress__bar-days-elapsed-percentage, .progress__info-days-elapsed, .progress__info-days-to-finish {
-    font-size: 2rem;
+    font-size: inherit;
   }
 }
 
 @media (min-width: 992px) {
   .progress__info-days-elapsed:hover::before, .progress__info-days-to-finish:hover::after {
     display: inline-block;
+    font-size: 1.6rem;
   }
 }
 
@@ -407,13 +419,19 @@ body {
 }
 
 .header__heading {
+  position: relative;
   display: -ms-grid;
   display: grid;
   height: 100%;
   width: 100%;
-  -ms-grid-rows: 2fr (1fr)[4] 2fr;
+  -ms-grid-rows: 2fr 1fr 2fr (1fr)[3];
   -ms-grid-columns: (1fr)[4];
-      grid-template: 2fr repeat(4, 1fr) 2fr/repeat(4, 1fr);
+      grid-template: 2fr 1fr 2fr repeat(3, 1fr)/repeat(4, 1fr);
+}
+
+.header__bar, .header__weather-date {
+  margin-top: 1.4em;
+  font-size: 1.6rem;
 }
 
 .header__bar {
@@ -429,7 +447,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 1.4em;
 }
 
 .header__weather {
@@ -442,9 +459,7 @@ body {
 }
 
 .header__weather-date {
-  margin-top: 1.4em;
   padding: 0 0.5em;
-  font-size: 1.6rem;
   text-align: center;
   color: #daddfc;
 }
@@ -502,8 +517,8 @@ body {
   grid-row: 2 / 3;
   -webkit-transform: translateX(-150%);
           transform: translateX(-150%);
-  -webkit-animation: rail 1s ease-out 0.5s forwards;
-          animation: rail 1s ease-out 0.5s forwards;
+  -webkit-animation: rail 1.2s cubic-bezier(0.12, 0.8, 0.63, 0.62) 0.5s forwards;
+          animation: rail 1.2s cubic-bezier(0.12, 0.8, 0.63, 0.62) 0.5s forwards;
 }
 
 .header__heading-box-center {
@@ -520,8 +535,8 @@ body {
   grid-row: 4 / 5;
   -webkit-transform: translateX(140%);
           transform: translateX(140%);
-  -webkit-animation: baltica 1s ease-out 0.7s forwards;
-          animation: baltica 1s ease-out 0.7s forwards;
+  -webkit-animation: baltica 1.2s cubic-bezier(0.12, 0.8, 0.63, 0.62) 0.5s forwards;
+          animation: baltica 1.2s cubic-bezier(0.12, 0.8, 0.63, 0.62) 0.5s forwards;
 }
 
 .header__heading-box-bottom {
@@ -563,7 +578,7 @@ body {
   font-size: 4.8rem;
   color: #fff;
   text-shadow: 2px 2px 3px black;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   cursor: default;
   opacity: 0;
   -webkit-animation: headerText 2s ease-in-out 1.5s forwards;
@@ -594,12 +609,16 @@ body {
           box-shadow: 3px 3px 10px black;
 }
 
+.header__btn--click {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 @media (max-width: 374px) {
   .header {
     min-width: 320px;
   }
-  .header__weather-date {
-    padding: 0.4em;
+  .header__weather-date, .header__bar {
     font-size: 1.4rem;
   }
   .header__weather-info {
@@ -678,11 +697,7 @@ body {
     width: 60px;
     height: 60px;
   }
-  .header__days {
-    margin-top: 1.5em;
-    font-size: 2rem;
-  }
-  .header__weather-date {
+  .header__weather-date, .header__bar {
     margin-top: 1.5em;
     font-size: 2rem;
   }
@@ -695,10 +710,6 @@ body {
   .header__heading-text {
     font-size: 7.2rem;
     letter-spacing: 0.2em;
-  }
-  .header__btn {
-    padding: 0.6em 1.4em;
-    font-size: 1.8rem;
   }
   .nav {
     -webkit-box-align: center;
@@ -731,11 +742,6 @@ body {
     background-image: linear-gradient(90deg, rgba(7, 52, 82, 0.62), rgba(0, 0, 0, 0.8)), url("../img/header_1920.jpg");
     background-position: center;
     background-size: cover;
-  }
-  .header__heading {
-    -ms-grid-rows: 1fr 1fr 2fr (1fr)[3];
-    -ms-grid-columns: (1fr)[4];
-        grid-template: 1fr 1fr 2fr repeat(3, 1fr)/repeat(4, 1fr);
   }
   .header__weather-info {
     height: 6rem;

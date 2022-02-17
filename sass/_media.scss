@@ -2,11 +2,11 @@
 	.header {
 		min-width: 320px;
 
+        &__weather-date, &__bar {
+            font-size: 1.4rem;
+        }
+
 		&__weather {
-			&-date {
-				padding: 0.4em;
-				font-size: 1.4rem;
-			}
 
 			&-info {
 				height: 3rem;
@@ -71,6 +71,7 @@
             padding: 0;
             font-size: 1.8rem;
         }
+
 		&__weather {
 
 			&-info {
@@ -119,16 +120,12 @@
 	}
 
 	.header {
-		&__days {
-			margin-top: 1.5em;
-			font-size: 2rem;
-		}
+        &__weather-date, &__bar {
+            margin-top: 1.5em;
+            font-size: 2rem;
+        }
 
 		&__weather {
-			&-date {
-				margin-top: 1.5em;
-				font-size: 2rem;
-			}
 
 			&-info {
 				margin: 1.2em 0;
@@ -142,11 +139,6 @@
 		&__heading-text {
 			font-size: 7.2rem;
 			letter-spacing: 0.2em;
-		}
-
-		&__btn {
-			padding: 0.6em 1.4em;
-			font-size: 1.8rem;
 		}
 	}
 
@@ -179,9 +171,6 @@
 	.header {
 		@include heroImg('../img/header_1920.jpg');
 
-		&__heading {
-			grid-template: 1fr 1fr 2fr repeat(3, 1fr) / repeat(4, 1fr);
-		}
 		&__weather {
 			&-info {
 				height: 6rem;

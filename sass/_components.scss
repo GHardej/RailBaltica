@@ -8,7 +8,7 @@
 	position: relative;
 	overflow: hidden;
 	transition: background-color 0.3s;
-	z-index: 0;
+	z-index: 1;
 
 	&::before {
 		display: block;
@@ -63,4 +63,15 @@
 		height: 1em;
 		border-width: 3px;
 	}
+}
+
+.bottom-block {
+	position: absolute;
+	height: 100vh;
+	width: 150vw;
+	border-radius: 50%;
+	background-color: $light-white;
+	bottom: -80%;
+	left: -40%;
+	z-index: 0;
 }
