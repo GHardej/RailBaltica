@@ -72,6 +72,32 @@
 	border-radius: 50%;
 	background-color: $light-white;
 	bottom: -80%;
-	left: -40%;
+	left: -36%;
 	z-index: 0;
 }
+
+.section-heading {
+	position: relative;
+	margin-bottom: 2em;
+	font-size: 3rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	color: $main-color;
+	letter-spacing: 2px;
+}
+
+.section-padding {
+	padding: 6em 2em;
+}
+
+// .aboutus__block {
+// 	position: absolute;
+// 	height: 100vh;
+// 	width: 150vw;
+// 	border-radius: 50%;
+// 	background-color: $light-white;
+// 	top: -48.5%;
+// 	left: -40%;
+// 	z-index: -1;
+// }

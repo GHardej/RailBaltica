@@ -150,10 +150,10 @@ body {
 		grid-template: 2fr 1fr 2fr repeat(3, 1fr) / repeat(4, 1fr);
 	}
 
-	&__bar, &__weather-date {
+	&__bar,
+	&__weather-date {
 		margin-top: 1.4em;
 		font-size: 1.6rem;
-
 	}
 
 	&__bar {
@@ -207,7 +207,7 @@ body {
 			grid-column: 1 / 3;
 			grid-row: 2 / 3;
 			transform: translateX(-150%);
-			animation: rail 1.2s cubic-bezier(.12,.8,.63,.62) 0.5s forwards;
+			animation: rail 1.2s cubic-bezier(0.12, 0.8, 0.63, 0.62) 0.5s forwards;
 		}
 
 		&-center {
@@ -219,7 +219,7 @@ body {
 			grid-column: 3 / -1;
 			grid-row: 4 / 5;
 			transform: translateX(140%);
-			animation: baltica 1.2s cubic-bezier(.12,.8,.63,.62) .5s forwards;
+			animation: baltica 1.2s cubic-bezier(0.12, 0.8, 0.63, 0.62) 0.5s forwards;
 		}
 
 		&-bottom {
@@ -285,6 +285,110 @@ body {
 			box-shadow: none;
 		}
 	}
+}
+
+// SECTION: ABOUT US
+.aboutus {
+	background-color: $light-white;
+	overflow: hidden;
+	// &__box {
+	// display: flex;
+	// flex-direction: column;
+	// width: 100%;
+	// }
+
+	&__box-client,
+	&__box-contractor {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__box-client {
+		border-bottom: 1px solid $pure-white;
+
+		.aboutus__img {
+			width: 100%;
+		}
+	}
+
+	&__box-img {
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+		border: 1px solid $secondary-color;
+		border-radius: 35%;
+		margin-bottom: 1.5em;
+
+		a {
+			display: flex;
+			justify-content: center;
+			margin: 0 1em 1em;
+		}
+	}
+
+	&__box-text {
+		margin-bottom: 2em;
+	}
+
+	&__box-title {
+		margin-bottom: 1em;
+		text-transform: uppercase;
+		font-size: 2rem;
+		color: $secondary-color;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+
+		p {
+			padding: 0.5em 0;
+			font-size: inherit;
+			text-indent: 2em;
+
+			&:last-child {
+				font-size: 1.2rem;
+				text-indent: 0;
+			}
+		}
+	}
+
+	&__ullist {
+		list-style: none;
+	}
+
+	&__ullist-item {
+		padding: 0.3em;
+		font-size: inherit;
+
+		.fa-check {
+			margin-right: 1em;
+			font-size: inherit;
+		}
+	}
+	// &--right {
+	// 	order: 1;
+	// }
+
+	&__box-contractor {
+		margin-top: 2em;
+
+		.aboutus__img {
+			width: 50%;
+			max-height: 300px;
+
+			&--intercor {
+				max-width: 50%;
+				max-height: 150px;
+			}
+		}
+
+		.aboutus__img-partners {
+			display: flex;
+			justify-content: center;
+		}
+	}
+	// &__img {
+	// }
 }
 
 // MEDIA

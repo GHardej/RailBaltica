@@ -80,8 +80,23 @@
   border-radius: 50%;
   background-color: #daddfc;
   bottom: -80%;
-  left: -40%;
+  left: -36%;
   z-index: 0;
+}
+
+.section-heading {
+  position: relative;
+  margin-bottom: 2em;
+  font-size: 3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  color: #2e4c6d;
+  letter-spacing: 2px;
+}
+
+.section-padding {
+  padding: 6em 2em;
 }
 
 @-webkit-keyframes rail {
@@ -612,6 +627,116 @@ body {
 .header__btn--click {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.aboutus {
+  background-color: #daddfc;
+  overflow: hidden;
+}
+
+.aboutus__box-client, .aboutus__box-contractor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.aboutus__box-client {
+  border-bottom: 1px solid #fff;
+}
+
+.aboutus__box-client .aboutus__img {
+  width: 100%;
+}
+
+.aboutus__box-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+  border: 1px solid #396eb0;
+  border-radius: 35%;
+  margin-bottom: 1.5em;
+}
+
+.aboutus__box-img a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 1em 1em;
+}
+
+.aboutus__box-text {
+  margin-bottom: 2em;
+}
+
+.aboutus__box-title {
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #396eb0;
+}
+
+.aboutus__text {
+  font-size: 1.4rem;
+}
+
+.aboutus__text p {
+  padding: 0.5em 0;
+  font-size: inherit;
+  text-indent: 2em;
+}
+
+.aboutus__text p:last-child {
+  font-size: 1.2rem;
+  text-indent: 0;
+}
+
+.aboutus__ullist {
+  list-style: none;
+}
+
+.aboutus__ullist-item {
+  padding: 0.3em;
+  font-size: inherit;
+}
+
+.aboutus__ullist-item .fa-check {
+  margin-right: 1em;
+  font-size: inherit;
+}
+
+.aboutus__box-contractor {
+  margin-top: 2em;
+}
+
+.aboutus__box-contractor .aboutus__img {
+  width: 50%;
+  max-height: 300px;
+}
+
+.aboutus__box-contractor .aboutus__img--intercor {
+  max-width: 50%;
+  max-height: 150px;
+}
+
+.aboutus__box-contractor .aboutus__img-partners {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (max-width: 374px) {
